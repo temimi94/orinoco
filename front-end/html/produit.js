@@ -4,7 +4,7 @@ const idProduct = new URLSearchParams(urlProduct).get("id");
 const url = "http://localhost:3000/api/teddies/"+idProduct;
 
 /*----déclarer la fonction pour récuperer les produits par le id--------*/
- const recupProduits = async function() {
+ const produitselectionner = async function() {
  try {
     let reponse = await fetch(url);
       if(reponse.ok) {
@@ -24,6 +24,8 @@ const url = "http://localhost:3000/api/teddies/"+idProduct;
         let affichageProduits = document.querySelector('#affichage-teddy');
 
         let prix = produits.price/100;
+
+        function affichageTeddy() { 
         let structureHtml = `<div id="teddy">
           <img src="${produits.imageUrl}" alt="teddy">
           <p class="nom-teddy">${produits.name}</p>
@@ -37,6 +39,8 @@ const url = "http://localhost:3000/api/teddies/"+idProduct;
           <button class="envoyer">Ajouter au panier</button>`;
 
           affichageProduits.innerHTML = structureHtml ;
+        }
+        affichageTeddy();
           //récuperation de id de la lavue de l'option
           let idValue = document.querySelector('#option-produit');
 
@@ -96,5 +100,5 @@ const url = "http://localhost:3000/api/teddies/"+idProduct;
   }  
 };
 
-recupProduits ();
+produitselectionner ();
 

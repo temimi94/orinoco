@@ -11,6 +11,7 @@ const recupProduits = async function() {
             let produits = await reponse.json();
             console.log(produits);
 
+            function affichageProduits() {         
             let structureHtml = "";
             for ( let i = 0; i < produits.length; i++) {
                 structureHtml+= `<div class="card" >
@@ -25,6 +26,8 @@ const recupProduits = async function() {
 
             let injectionHtml = document.querySelector('#affichage-produit');
             injectionHtml.innerHTML = structureHtml;
+        }
+        affichageProduits();
         } else {
             console.error (reponse.status);
         } 

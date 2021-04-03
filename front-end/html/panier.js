@@ -31,7 +31,7 @@ if(produitLocalStorage === null || produitLocalStorage == 0) {
 
 /*----------création du btn vider le panier-----------*/
 //inserer le code html
-
+function panierVide() { 
 const btnViderPanier = `
   <button class="btn-tous-supprimer"> Vider le panier </button>`;
   produitPanier.insertAdjacentHTML("afterend", btnViderPanier);
@@ -45,9 +45,11 @@ btnTousSupprimer.addEventListener('click', (e) => {
 
    //removeItem pour vider le local 
    localStorage.removeItem("produits");
+   localStorage.removeItem("prixTotal");
    window.location.href="panier.html";
 });
-
+}
+panierVide();
 /*----------------montant total du panier----------*/
 //declaration pour stocker le prix total
 const prixPanier = () => { 
@@ -148,7 +150,7 @@ const controleForm = () => {
 
 
 /*---------controle du formulaire-------*/
-
+  
    function regex(value) { return /^[A-Za-z]{3,20}$/.test(value);}
    function regExEmail(value) { return /^[A-Za-z0-9-éàè.]+@[a-z.]+[a-z.]$/.test(value);}
    function regExAdress(value) { return /^[A-Za-z0-9-éàè\s]{10,50}$/.test(value);}
@@ -238,8 +240,10 @@ const controleForm = () => {
       } else {
          return false;
       };
-     
+    
+  
 /***************enregistrer les donners et confirmer la commande----------*/
+function recupInfo() { 
    const promise = fetch("http://localhost:3000/api/teddies/order", {
    method: "POST",
    body: JSON.stringify({contact, products}),
@@ -256,6 +260,8 @@ const controleForm = () => {
       console.log(e);
     }
    });
+  }
+  recupInfo();
 
    localStorage.removeItem("produits"); 
    window.location.href="confirmation.html";

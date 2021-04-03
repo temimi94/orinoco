@@ -1,4 +1,4 @@
-function confirmation() { 
+
 let confirmationCommande = JSON.parse(localStorage.getItem("contenu"));
 let confirmationContact = JSON.parse(localStorage.getItem("contact"));
 let confirmationPrix = JSON.parse(localStorage.getItem("prixTotal"));
@@ -24,8 +24,7 @@ let structureHtmlConfirmation = `
 </div>
 `;
  positionElementConfirmation.innerHTML = structureHtmlConfirmation;
-}
-confirmation();
+
  const fermer = document.querySelector(".btn-fermer");
  function closeModal() {
    localStorage.clear();
