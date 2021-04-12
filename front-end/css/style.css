@@ -1,0 +1,440 @@
+/*----page d'accueil---------*/
+
+body {
+    font-family:"Akaya Telivigala";
+}
+/*--header---*/
+
+header {
+    display: flex;
+    position: relative;
+    height: 80px;
+    background-color:black ;
+    box-shadow: 0px 5px 5px #cebfbf;
+}
+
+a {
+    color : white;
+}
+
+ul.nav {
+   margin-top: 20px; 
+   font-weight: bold;
+   font-size: 18px;
+   position: absolute;
+    right:50px;
+}
+
+ul.nav li a:hover{
+    color: white;
+}
+
+.logo {
+    width:200px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/*----fin du header----*/
+/*---------main---------*/
+h2, h3 {
+    text-align: center;
+    color:white;
+}
+
+h2 {
+    margin-top:40px;
+}
+
+#affichage-produit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center; 
+}
+
+.card {
+    margin-top:30px;
+    margin-bottom: 20px;
+    width: 25rem;
+    animation: transparence 3s;
+}
+
+.citation {
+    margin:50px;
+    font-weight: bold;
+    color: white;
+}
+
+/*-----fin main------*/
+/*-----footer--------*/
+ footer {
+    background-color:black ;
+    box-shadow: 0px 5px 5px #cebfbf;
+    height: 100px;  
+ }
+
+ .localisation {
+    position: absolute;
+    top: 70%;
+    color:rgb(192, 133, 133);
+    font-size: 18px;  
+ }
+
+ .nav-link.active {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+.fa-cart-arrow-down {
+    color:white;
+}
+
+.nav-link.active:hover {
+    color:rgb(192, 133, 133) !important;
+}
+/*-----fin footer------*/
+/*------------page produits-------------*/
+#affichage-teddy, .card {
+    text-align: center;
+    border: 1px solid grey;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 15px;
+    height: 480px;
+}
+
+#affichage-teddy { 
+width: 50%;
+}
+
+main {
+    background-color: #745262;
+    padding: 10px;
+}
+
+.header-livraison {
+    background-color:#fdedfc;
+    padding: 10px;
+}
+
+.livraison {
+    text-align: center;
+    font-size: 20px; 
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;  
+}
+
+#teddy > img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 300px;
+}
+
+.confirmation {
+   display: none;
+   width: 50%;
+   position:absolute;
+   top:50%;
+   left:30%;
+   background-color: #cebfbf;
+}
+
+.fermer {
+    font-size: 14px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: rgb(192, 133, 133);
+    text-align: center;
+} 
+
+a {
+    text-decoration: none;
+}
+
+.fermer a:hover {
+    color: #fcf0fb !important ;
+}
+
+.envoyer, select, .form-select {
+    border: 2px solid #cebfbf;
+    border-radius: 7px;
+    margin-left: 30px;
+    background-color: rgb(192, 133, 133);
+}
+
+.form-select {
+    width: 20%;
+    height: 30px;
+    margin: auto;
+}
+
+.nom-teddy {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.imagePeluche > img {
+    width: 100%;
+}
+
+.imagePeluche {
+    width: 20%;
+}
+
+#affichagePanier{
+    top: 10%;
+    position: absolute;
+    left: 90%;
+}
+
+button.btn.btn-primary > a {
+    color: rgb(97, 96, 96);
+}
+
+button.btn.btn-secondary > a {
+    color: rgb(192, 133, 133);
+}
+
+.prix {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: rgb(192, 133, 133) !important;
+    border: #cebfbf;
+}
+/*--------page panier-------*/
+.container-panier-vide, .btn-tous-supprimer {
+    border : 2px solid rgb(192, 133, 133);
+    margin: auto;
+    font-size: 20px;
+    width: 50%;
+    display: flex;
+    justify-content:center;
+    margin-top: 30px;
+}
+
+.btn-tous-supprimer {
+    background-color: rgb(243, 237, 237) !important;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px grey;
+    min-width:20% ;
+}
+
+.container-affichage {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid rgb(192, 133, 133);
+    margin-top:50px !important;
+    box-shadow: 3px 3px 5px grey;
+    font-weight: bold;
+    width: 50%;
+    height: 55px;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    margin: auto;  
+}
+
+.name, .prix {
+    margin: auto;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+tr > td > img {
+    width: 20%;
+    height: 50px;
+}
+
+.table {
+    margin-top: 20px;
+    border-top: 1px solid rgb(223, 221, 221);
+}
+
+.image {
+    display: flex;
+}
+
+.supprimer {
+    border: 0px;
+    color: rgb(192, 133, 133);
+    background-color: transparent;
+}
+
+#container-panier {
+  display: flex;  
+  flex-direction: column;
+}
+
+.affichage-prix-total {
+ text-align: center;
+ background-color: rgb(245, 238, 238);
+ height: 30px;
+ min-width: 20%;
+ margin: auto;
+ border-radius: 10px;
+ box-shadow: 4px 4px 5px grey;
+}
+
+.formulaire {
+    width:70%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.verification {
+    width: 100%;
+    height: 40px;
+    font-size: 13px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+/*-----------page confirmation---------------*/
+.image-fond  {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+   display: flex;
+   margin: auto;
+   
+}
+
+ .btn-fermer {
+    background-color: rgb(192, 133, 133);
+    border-radius: 10%;
+    padding: 10px;
+    border: rgb(192, 133, 133);
+}
+
+.btn-fermer > a {
+    color: black;
+}
+
+#confirmation-commande {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.remercier {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+    margin: auto;
+}
+
+img {
+    object-fit: cover;
+}
+footer {
+    position: relative;
+}
+
+
+/*---------------media queries---------------------*/
+@media screen and (max-width:460px) {
+    .image-fond {
+        width: 100%;
+    }
+
+    #affichagePanier {
+        top: 55%;
+        position: absolute;
+    }
+
+    #confirmation-commande {
+        margin-bottom: 50px; 
+    }
+
+    .nav-pills {
+    flex-direction: column;
+    position: absolute;
+    left: -10px;
+    }
+
+    footer {
+        height: 170px;
+    }
+
+    header > ul.nav {
+        flex-direction: column;
+        position: absolute;
+        top: -25px;
+        left: 75%;
+    }
+
+    .card-img-top {
+        height: 250px
+    }
+
+    .card {
+        width: 95%;
+        height: 450px;
+    }
+
+    .citation {
+        width: 100%;
+        margin: 0px;
+    }
+
+    #affichage-teddy {
+        width: 95%;
+        height: 580px; 
+    }
+
+    .confirmation{
+        left: 10%;
+        width: 80%;
+    }
+
+    .container-affichage {
+        width: 100%;
+    }
+
+    .formulaire {
+        width: 90%;
+    }
+
+}
+
+@media screen and (min-width: 461px) and (max-width:700px) {
+    #affichage-teddy {
+        width: 80%;
+    }
+
+    #teddy > img {
+        height: 250px
+    }
+
+    .confirmation {
+        width: 80%;
+        left: 10%;
+    }
+
+    .container-affichage {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width:701px) {
+    .confirmation {
+        width: 50%;
+    }
+
+    #affichage-teddy {
+        width: 60%;
+    }
+
+}
