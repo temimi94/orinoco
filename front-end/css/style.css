@@ -215,13 +215,19 @@ button.btn.btn-secondary > a {
 }
 /*--------page panier-------*/
 .container-panier-vide, .btn-tous-supprimer {
-    border : 2px solid rgb(192, 133, 133);
+   border: 2px solid rgb(192, 133, 133); 
     margin: auto;
     font-size: 20px;
-    width: 50%;
-    display: flex;
-    justify-content:center;
+    width: 250px;
+     display: flex; 
+     justify-content: center;
     margin-top: 30px;
+    background-color: white;
+    text-align: center;
+}
+
+.none {
+    display: none;
 }
 
 .btn-tous-supprimer {

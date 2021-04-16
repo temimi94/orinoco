@@ -8,7 +8,7 @@ if(produitLocalStorage === null || produitLocalStorage < 1) {
   const panierVide = `
     <div class="container-panier-vide">
      <div>Le panier est vide</div>
-     </div>`;
+    </div>`;
 
    produitPanier.innerHTML = panierVide;
 } else {//sinon afficher les produits dans le panier 
@@ -34,14 +34,18 @@ if(produitLocalStorage === null || produitLocalStorage < 1) {
 
 /*----------création du btn vider le panier-----------*/
 
-//inserer le code html
+
 function panierVide() {
+  //structure du code html
   const btnViderPanier = `
-  <button class="btn-tous-supprimer"> Vider le panier </button>`;
+    <button class="btn-tous-supprimer"> Vider le panier </button>`;
+
+  //injection du html
   produitPanier.insertAdjacentHTML("afterend", btnViderPanier);
   
+  //récuperation de la class du btn vider le panier
   const btnTousSupprimer = document.querySelector(".btn-tous-supprimer"); 
-  //suppression de la key produit local
+ 
   btnTousSupprimer.addEventListener('click', (e) => {
     e.preventDefault();
     //removeItem pour vider le local 
@@ -58,12 +62,14 @@ const prixPanier = () => {
   //chercher les prix dans le panier 
   if (produitLocalStorage && produitLocalStorage.length >= 1) {
     for (let k = 0; k < produitLocalStorage.length; k++) {
+      //multiplier le prix par la quantité
       let prixProduitsDansPanier = produitLocalStorage[k].prix * produitLocalStorage[k].quantite;
       
       //mettre le prix du panier dans la variable du total
       prixTotalPanier.push(prixProduitsDansPanier);
     };
   };
+
   //additionner les prix qu'il ya dans le tableau 
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   const prixTotal = prixTotalPanier.reduce(reducer, 0);
@@ -81,7 +87,11 @@ const prixPanier = () => {
 /*-----------Formulaire----------------*/
 
 const formulaireDeContact = () => {
+
+  //récuperation de la class pour injecter le html
   const positionElement = document.querySelector(".formulaire");
+
+  //structure du html
   const structureHtmlFormulaire = `<div class="formulaire-contact>
     <div class="row g-3">
       <div class="col">
@@ -115,8 +125,10 @@ const formulaireDeContact = () => {
 };
 
 const controleForm = () => { 
+
   if (produitLocalStorage < 1) {
     console.log("panier vide") 
+  
   }else { 
     formulaireDeContact();
     panierVide();
@@ -153,10 +165,12 @@ const controleForm = () => {
       document.querySelector("#adresse").value = convertionLocalStorage.address;
       document.querySelector("#ville").value = convertionLocalStorage.city;
 
+     
       //controle de la validité du prénom 
       function prenomControle() {
         const lePrenom = contact.lastName;
         if(regex(lePrenom)){
+            displayNone();
             return true;
         } else {
           alertNomPrenom();
@@ -167,6 +181,7 @@ const controleForm = () => {
       function nomControle() {
         const leNom = contact.firstName;
         if(regex(leNom)){
+          displayNone();
           return true;
         } else {
           alertNomPrenom();
@@ -177,6 +192,7 @@ const controleForm = () => {
       function villeControle() {
         const laVille = contact.city;
         if(regex(laVille)){
+          displayNone();
           return true;
         } else {
           alertVille();
@@ -188,6 +204,7 @@ const controleForm = () => {
       function emailControle () {
         const leMail = contact.email;
         if(regExEmail(leMail)){
+          displayNone();
           return true;
         } else {
           alertEmail();
@@ -199,6 +216,7 @@ const controleForm = () => {
       function adresseControle() {
         const adresse =contact.address;
         if(regExAdress(adresse)){
+          displayNone();
           return true;
         } else {
           AlertAdresse();
@@ -212,9 +230,9 @@ const controleForm = () => {
         } else {
           return false;
         };
-      
-  /***************enregistrer les donners et confirmer la commande----------*/
-      function recupInfo() { 
+
+      // Se connecte à l'API pour envoyer des données
+      const recupInfo = () =>  { 
         const promise = fetch(" http://localhost:3000/api/teddies/order", {
           method: "POST",
           body: JSON.stringify({contact, products}),
@@ -229,15 +247,15 @@ const controleForm = () => {
             contenu = localStorage.setItem("contenu", JSON.stringify(contenu));
           } catch(e) {
             console.log(alertFonctionnement());
-          }
+          } 
         });
-      }
+      };
       recupInfo();
-
+     
     localStorage.removeItem("panierProduits"); 
     window.location.href="confirmation.html";
   });
-};
+  };
 };
 controleForm();
 affichageQuantitePanier();

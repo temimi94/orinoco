@@ -30,6 +30,7 @@ const url = "http://localhost:3000/api/teddies/"+idProduct;
             >${quantite[r]}</option>`;
           };
 
+          //la structure de mon html pour l'affichage du produit sélectionné
           let structureHtml = `<div id="teddy">
               <img src="${produits.imageUrl}" alt="teddy">
               <p class="nom-teddy">${produits.name}</p>
@@ -62,6 +63,7 @@ const url = "http://localhost:3000/api/teddies/"+idProduct;
 
         btn_envoyerPanier.addEventListener('click', function ajouterProduitStorage(event) {
           event.preventDefault();
+
             //création localStorage
             let panierProduits = JSON.parse(localStorage.getItem("panierProduits")) || [];
             let produitDansPanier = false;
@@ -80,10 +82,7 @@ const url = "http://localhost:3000/api/teddies/"+idProduct;
             prix : prix
             };
 
-/*------LE-LOCALE-STOCAGE------*/
-//stocker-la-récupération-des-valeurs-du-formulaire-dans-le-locale
-//déclaration de la variable pour mettre les key et les values qui sont dans le local
-
+            //modifier la quantité pour le même produit ajouté
             if(panierProduits && panierProduits.length >= 1) {
               panierProduits = JSON.parse(localStorage.getItem("panierProduits"));
               for ( let i = 0; i < panierProduits.length; i++){
@@ -100,17 +99,20 @@ const url = "http://localhost:3000/api/teddies/"+idProduct;
             };
 
             localStorage.setItem("panierProduits",JSON.stringify(panierProduits));
-          });
+        });
 
-          let btnPanier = document.querySelector(".envoyer");
+        let btnPanier = document.querySelector(".envoyer");
       
-          btnPanier.addEventListener('click', affichePopUp);
-        } else {
-          console.error(reponse.status);
-        };
-      } catch(e) {
-        console.log(alertFonctionnement());
+        //afiichage de la popUp ajouter au panier
+        btnPanier.addEventListener('click', affichePopUp);
+      
+      } else {
+        console.error(reponse.status);
       };
+    } catch(e) {
+      console.log(alertFonctionnement());
+    };
   };
-  affichageQuantitePanier()
+  
 produitSelectionner();
+affichageQuantitePanier();

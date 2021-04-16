@@ -16,17 +16,17 @@ function affichageQuantitePanier() {
 
 //afficher l'alert produit ajouter au panier
 let btnFermer = document.querySelector(".confirmation");
-function affichePopUp() {
+const affichePopUp = () => {
     btnFermer.style.display = "block";   
 };
 
-//alert 
-function alertFonctionnement() {
+//alert fonctionnement
+const alertFonctionnement = () => {
     return "Problème sur notre site, Veillez revenir ultérieurement !";
 };
 
 //alert de l'adresse postale
-function AlertAdresse() {
+const AlertAdresse = () => {
     let positionElementAdresse = document.querySelector(".col-md-7");
         let structureHtmlAdresse = `<div class="verification-ville">
           <div class="alert alert-danger" role="alert">
@@ -37,7 +37,7 @@ function AlertAdresse() {
 };
 
 //alert de l'Email
-function alertEmail() {
+const alertEmail = () => {
     let positionElementMail = document.querySelector(".col-md-6");
         let structureHtmlMail = `<div class="verification-ville">
           <div class="alert alert-danger" role="alert">
@@ -48,7 +48,7 @@ function alertEmail() {
 };
 
 //alert ville
-function alertVille() {
+const alertVille = () => {
     let positionElementAlertVille = document.querySelector(".col-md-7");
     let structureVerificationVille = `<div class="verification-ville">
       <div class="alert alert-danger" role="alert">
@@ -59,7 +59,7 @@ function alertVille() {
 };
 
 //alert nom et prénom 
-function alertNomPrenom() {
+const alertNomPrenom = () => {
     let positionElementAlert = document.querySelector(".form-control");
     let structureVerification = `
       <div class="verification">
@@ -71,16 +71,19 @@ function alertNomPrenom() {
 };
 
 //controler le formulaire avec les expression régulière
-function regex(value) {
+const regex = (value) => {
      return /^[A-Za-z]{3,20}$/.test(value);
     };
 
-function regExEmail(value) {
+const regExEmail = (value) => {
      return /^[A-Za-z0-9-éàè.]+@[a-z.]+[a-z.]$/.test(value);
     };
 
-function regExAdress(value) {
+const regExAdress = (value) => {
      return /^[A-Za-z0-9-éàè\s]{10,50}$/.test(value);
-    };
+    }; 
 
-    
+function displayNone() {
+  let positionAlertVille = document.querySelector('.alert-danger');
+  positionAlertVille.style.display="none";
+}

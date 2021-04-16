@@ -11,6 +11,7 @@ const recupProduits = async function() {
             let produits = await reponse.json();
             console.log(produits);
 
+            //Structure de mon html
             function affichageProduits() {         
             let structureHtml = "";
             for ( let i = 0; i < produits.length; i++) {
@@ -35,5 +36,5 @@ const recupProduits = async function() {
         console.log(alertFonctionnement());
     }
 }
-affichageQuantitePanier()
+affichageQuantitePanier();
 recupProduits();

@@ -1,9 +1,13 @@
 
+//la récupération dans mon localStorage
 let confirmationCommande = JSON.parse(localStorage.getItem("contenu"));
 let confirmationContact = JSON.parse(localStorage.getItem("contact"));
 let confirmationPrix = JSON.parse(localStorage.getItem("prixTotal"));
 
+//la récuperation de l'id pour le positionnement de mon html
 let positionElementConfirmation = document.querySelector("#confirmation-commande");
+
+//la structure de mon html 
 let structureHtmlConfirmation = `
   <div class="card" style="width: 25rem;">
   <div class="card-body">
@@ -28,6 +32,7 @@ let structureHtmlConfirmation = `
   `;
 positionElementConfirmation.innerHTML = structureHtmlConfirmation;
 
+//supprimer le localStorage
 const fermer = document.querySelector(".btn-fermer");
 function closeModal() {
   localStorage.clear();
